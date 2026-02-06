@@ -14,7 +14,7 @@ export const slides2026: Slide[] = [
     },
     {
         component: <Slide1 />,
-        duration: 3000, // 3 seconds
+        duration: 3000,
         position: "center",
     },
     {
@@ -25,16 +25,16 @@ export const slides2026: Slide[] = [
     {
         component: <Slide3 />,
         duration: 3000,
-        position: "bottom-right",
+        position: "top-left",
     },
     {
         component: <Slide4 />,
         duration: 3000,
-        position: "bottom-left",
+        position: "bottom-right",
     },
     {
         component: <Slide5 />,
-        duration: Infinity, // Last slide persists infinitely
+        duration: Infinity,
         position: "center",
     },
 ];

@@ -29,13 +29,13 @@ interface SlideshowProps {
 }
 
 const positionClasses: Record<SlidePosition, string> = {
-    "top-left": "absolute top-4 left-4",
-    "top-center": "absolute top-4 left-1/2 -translate-x-1/2",
-    "top-right": "absolute top-4 right-4",
-    "center": "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-    "bottom-left": "absolute bottom-4 left-4",
-    "bottom-center": "absolute bottom-4 left-1/2 -translate-x-1/2",
-    "bottom-right": "absolute bottom-4 right-4",
+    "top-left": "md:absolute md:top-4 md:left-4",
+    "top-center": "md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2",
+    "top-right": "md:absolute md:top-4 md:right-4",
+    "center": "md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2",
+    "bottom-left": "md:absolute md:bottom-4 md:left-4",
+    "bottom-center": "md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2",
+    "bottom-right": "md:absolute md:bottom-4 md:right-4",
 };
 
 export function Slideshow({ slides, className }: SlideshowProps) {
@@ -71,7 +71,7 @@ export function Slideshow({ slides, className }: SlideshowProps) {
     const currentSlide = slides[currentIndex];
 
     return (
-        <div className={cn("relative w-full h-full", className)}>
+        <div className={cn("relative w-full h-svh px-4 py-4 flex flex-col items-center justify-center", className)}>
             <AnimatePresence mode="wait">
                 {isPlaying && (
                     <motion.div
@@ -82,7 +82,7 @@ export function Slideshow({ slides, className }: SlideshowProps) {
                         transition={{ duration: 0.5, ease: "easeOut" }}
                         className={cn(
                             positionClasses[currentSlide.position],
-                            "w-max h-max flex items-center justify-center"
+                            "w-max h-max max-w-[94svw] flex items-center justify-center mx-auto my-auto"
                         )}
                     >
                         {currentSlide.component}
