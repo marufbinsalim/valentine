@@ -1,7 +1,10 @@
+"use client";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 export default function Home() {
-  return (
-    <div>
-      Hello World!
-    </div>
-  );
+  const router = useRouter();
+  useEffect(() => {
+    router.push(`/${new Date().getFullYear()}`);
+  }, []);
 }
