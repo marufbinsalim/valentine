@@ -15,27 +15,27 @@ export const slides2026: Slide[] = [
     },
     {
         component: <Slide1 />,
-        duration: 3000, // 3 seconds
+        duration: 8000, // 3 seconds
         position: "center",
     },
     {
         component: <Slide2 />,
-        duration: 3000,
+        duration: 8000,
         position: "center",
     },
     {
         component: <Slide3 />,
-        duration: 3000,
+        duration: 8000,
         position: "bottom-right",
     },
     {
         component: <Slide4 />,
-        duration: 3000,
+        duration: 8000,
         position: "bottom-left",
     },
     {
         component: <Slide5 />,
-        duration: 3000,
+        duration: 8000,
         position: "center",
     },
     {
