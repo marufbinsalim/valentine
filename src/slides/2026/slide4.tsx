@@ -11,7 +11,7 @@ export function Slide4() {
                     className="object-cover"
                 />
             </div>
-            <p className="text-2xl text-white">And now...</p>
+            <p className="text-2xl text-white">So now...</p>
             <p className="text-xl text-white/80 mt-2">I have a question for you</p>
         </div>
     );

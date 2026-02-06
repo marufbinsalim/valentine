@@ -10,6 +10,10 @@ interface SlideshowState {
     isMusicDone: boolean;
     isAudioPlaying: boolean;
 
+    // Proposal game state
+    noButtonClicks: number;
+    hasAccepted: boolean;
+
     // Actions
     setIsPlaying: (isPlaying: boolean) => void;
     setCurrentIndex: (index: number) => void;
@@ -18,7 +22,45 @@ interface SlideshowState {
     setIsMusicDone: (done: boolean) => void;
     setIsAudioPlaying: (playing: boolean) => void;
     startSlideshow: () => void;
+    incrementNoButton: () => void;
+    acceptProposal: () => void;
+    resetProposal: () => void;
 }
+
+// Array of silly messages for the No button
+const noButtonMessages = [
+    "No!",
+    "Why not? 🥺",
+    "But I love you! 💕",
+    "Please? 🥺",
+    "Think again! 🤔",
+    "Are you sure? 😢",
+    "Don't break my heart 💔",
+    "I'll wait! ⏰",
+    "One more chance? 🙏",
+    "Pretty please? 🎀",
+    "My heart hurts 😢",
+    "Give it a thought 💭",
+    "Can't you see? 👀",
+    "I'm right here! 📍",
+    "Love me back? 💗",
+    "Don't say no! 🚫",
+    "Your heart says yes ❤️",
+    "I can wait! 🕐",
+    "Second thoughts? 💭",
+    "I'm devoted! 🦋",
+    "Be mine? 💍",
+    "Trust me! 🤝",
+    "Say yes! 📢",
+    "I'll make you happy! 😊",
+    "Choose love! 💝",
+    "Open your heart! 🗝️",
+    "Feel the love! 💓",
+    "Together forever! ♾️",
+    "Say the magic word! ✨",
+    "Yes is beautiful! 🌸",
+    "Last chance! 🎯",
+];
 
 export const useStore = create<SlideshowState>((set) => ({
     // Initial state
@@ -27,6 +69,8 @@ export const useStore = create<SlideshowState>((set) => ({
     slideshowKey: 0,
     isMusicDone: false,
     isAudioPlaying: false,
+    noButtonClicks: 0,
+    hasAccepted: false,
 
     // Actions
     setIsPlaying: (isPlaying) => set({ isPlaying }),
@@ -42,6 +86,16 @@ export const useStore = create<SlideshowState>((set) => ({
         currentIndex: 0,
         slideshowKey: state.slideshowKey + 1
     })),
+    incrementNoButton: () => set((state) => ({ 
+        noButtonClicks: Math.min(state.noButtonClicks + 1, noButtonMessages.length - 1)
+    })),
+    acceptProposal: () => set({ hasAccepted: true }),
+    resetProposal: () => set({ noButtonClicks: 0, hasAccepted: false }),
 }));
+
+// Helper function to get the current No button message
+export const getNoButtonMessage = (clicks: number): string => {
+    return noButtonMessages[Math.min(clicks, noButtonMessages.length - 1)];
+};
 
 export default useStore;
